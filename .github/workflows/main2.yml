@@ -26,7 +26,7 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install -g mocha
-    
+        npm install @slack/bot
         
 
       env:
