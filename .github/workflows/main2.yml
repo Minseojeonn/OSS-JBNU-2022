@@ -35,7 +35,7 @@ jobs:
     - name: testing bot
       run: |
         mocha hello.spec.js
-        mocha indexold.js ${{ secrets.ASK_BOT}}
+        mocha indexold.js "${{ secrets.ASK_BOT }}"
         
       env:
        CI: true
