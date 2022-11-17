@@ -35,7 +35,7 @@ jobs:
     - name: testing bot
       run: |
         mocha hello.spec.js
-        mocha indexold.js
+        mocha indexold.js ${{ secrets.SLACK_BOT_TOKEN }}
         
       env:
        CI: true
