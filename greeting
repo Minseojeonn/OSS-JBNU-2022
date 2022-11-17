@@ -3,3 +3,6 @@ var greeting = function(rtm,channel){
 	rtm.sendMessage('Hello',channel);
 }
 module.exports = greeting;
+//hello
+
+

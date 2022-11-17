@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const {RTMClient} = require('@slack/rtm-api');
-
 var token = '';
 
 const fs = require('fs')
