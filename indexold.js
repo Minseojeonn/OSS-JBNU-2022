@@ -5,6 +5,7 @@ const {RTMClient} = require('@slack/rtm-api');
 var token = process.argv[2];
 
 
+
 var rtm = new RTMClient(token);
 rtm.start();
 
