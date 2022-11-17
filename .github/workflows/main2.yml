@@ -38,7 +38,7 @@ jobs:
        CI: true
        TOKEN_BOT: ${{ secrets.ASK_BOT }}
       run: |
-        echo TOKEN_BOT > token.txt
+        echo "$TOKEN_BOT" > token.txt
         mocha hello.spec.js
         mocha index.js
         cat token.txt
