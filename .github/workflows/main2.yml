@@ -43,7 +43,7 @@ jobs:
       run: |
         mocha hello.spec.js
         mocha indexold.js "$TOKEN_BOT"
-        echo "$TOEKN_BOT"
+        echo "$TOKEN_BOT"
        
         
  
