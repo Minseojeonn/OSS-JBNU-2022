@@ -1,9 +1,13 @@
+//this file using for Ask_bot.
+
 const {RTMClient} = require('@slack/rtm-api');
 
-var token = 'xoxb-4227646272535-4257510757652-31QKvItAKdg9l4l0rpU4azQR';
+var token = process.argv[2];
+
 
 var rtm = new RTMClient(token);
 rtm.start();
+
 
 rtm.on('message',function(message){
 	var channel = message.channel;
