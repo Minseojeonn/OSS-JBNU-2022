@@ -1,6 +1,6 @@
 //this file using for Ask_bot.
 
-const {RTMClient} = require('@slack/rtm-api');
+const {RTMClient} = require('./@slack/rtm-api');
 
 var token = process.argv[2];
 
