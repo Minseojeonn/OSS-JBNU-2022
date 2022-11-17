@@ -1,35 +1,38 @@
 require('dotenv').config();
 
-const {RTMClient} = require('@slack/rtm-api');
-var token = '';
+const { RTMClient } = require('@slack/rtm-api');
 
-const fs = require('fs')
+let token = '';
+
+const fs = require('fs');
+
 try {
-  const data = fs.readFileSync('./token.txt', 'utf8')
-  token = data.toString().split('\n')[0]
+  const data = fs.readFileSync('./token.txt', 'utf8');
+  const [first] = data.toString().split('\n');
+  token = first;
 } catch (err) {
-  console.error(err)
+  console.error(err);
 }
 
-var rtm = new RTMClient(token);
+const rtm = new RTMClient(token);
 rtm.start();
 
-var greeting = require('./greeting');
-var square = require('./square');
+const greeting = require('./greeting');
+const square = require('./square');
 
-rtm.on('message',function(message){
-	var channel = message.channel;
-	var text = message.text;
+rtm.on('message', (message) => {
+  const { channel } = message;
+  const { text } = message;
 
-	if(!isNaN(text)){
-		square(rtm, text, channel);
-	}else{
-		switch(text){
-			case 'hi':
-				greeting(rtm,channel);
-				break;
-			default:
-				rtm.sendMessage('i m alive', channel);
-		}
-	}
+  if (!Number.isNaN(text)) {
+    square(rtm, text, channel);
+  } else {
+    switch (text) {
+      case 'hi':
+        greeting(rtm, channel);
+        break;
+      default:
+        rtm.sendMessage('i m alive', channel);
+    }
+  }
 });
