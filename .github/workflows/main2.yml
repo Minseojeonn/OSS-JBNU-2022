@@ -24,7 +24,7 @@ jobs:
         
     - name: npm install, build, and test
       run: |
-        npm install mocha -g
+        npm install -g mocha
 
       env:
         CI: true
