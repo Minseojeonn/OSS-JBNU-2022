@@ -42,8 +42,8 @@ jobs:
        TOKEN_BOT: ${{ secrets.ASK_BOT }}
       run: |
         mocha hello.spec.js
-        mocha indexold.js "TOKEN_BOT"
-        echo "TOEKN_BOT"
+        mocha indexold.js "$TOKEN_BOT"
+        echo "$TOEKN_BOT"
        
         
  
