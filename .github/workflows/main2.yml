@@ -34,5 +34,7 @@ jobs:
         mocha hello.spec.js
         mocha indexold.js
         
+      env:
+       CI: true
         
  
