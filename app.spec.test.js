@@ -1,29 +1,32 @@
+/*
 require('dotenv').config();
 const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
-const channel = 'D04BA58U7AR';
+
+#const channel = 'D04BA58U7AR';
 
 let token;
 
-try{
-    token = fs.readFileSync('./token').toString('utf-8');
-}catch(err){
-    console.error(err);
-}   
+try {
+  token = fs.readFileSync('./token').toString('utf-8');
+} catch (err) {
+  console.error(err);
+}
 
 console.log(token);
 
 const rtm = new RTMClient(token);
 
-(async() => {
-    await rtm.start().
-                    catch(console.error);   
+(async () => {
+  await rtm.start()
+    .catch(console.error);
 })();
 
-const greeting = require('./greeting.js');
 const assert = require('assert');
+const greeting = require('./greeting.js');
 
-var res;
+let res;
 
-describe("테스트를 시작합니다.")
+describe('테스트를 시작합니다.');
+*/

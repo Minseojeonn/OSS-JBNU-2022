@@ -1,8 +1,8 @@
-const sayHello = require('./hello').sayHello;
 const assert = require('assert');
+const { sayHello } = require('./hello');
 
-describe('App test!', function(){
-  it('Test - sayHello should return hello', function (done) {
+describe('App test!', () => {
+  it('Test - sayHello should return hello', (done) => {
     assert.equal(sayHello(), 'hello');
     done();
   });

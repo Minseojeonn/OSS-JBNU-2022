@@ -1,21 +1,16 @@
-//this file using for Ask_bot.
+// this file using for Ask_bot.
 
-const {RTMClient} = require('@slack/rtm-api');
+const { RTMClient } = require('@slack/rtm-api');
 
-var token = process.argv[2];
+const token = process.argv[2];
 
-
-
-var rtm = new RTMClient(token);
+const rtm = new RTMClient(token);
 rtm.start();
 
+rtm.on('message', (message) => {
+  const { channel } = message;
+  const { text } = message;
 
-rtm.on('message',function(message){
-	var channel = message.channel;
-	var text = message.text;
-
-	if(text == 'hello')
-		rtm.sendMessage('hi',channel);
-	else
-		rtm.sendMessage('What?',channel);
+  if (text === 'hello') rtm.sendMessage('hi', channel);
+  else rtm.sendMessage('What?', channel);
 });

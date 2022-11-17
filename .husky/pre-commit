@@ -4,3 +4,5 @@
 echo 'Run Husky!!!'
 
 eslint . --ext .js
+npm test
+npm test
