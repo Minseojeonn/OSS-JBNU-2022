@@ -4,7 +4,7 @@ const { RTMClient } = require('@slack/rtm-api');
 
 const fs = require('fs');
 
-#const channel = 'D04BA58U7AR';
+const channel = 'D04BA58U7AR';
 
 let token;
 
@@ -24,9 +24,20 @@ const rtm = new RTMClient(token);
 })();
 
 const assert = require('assert');
-const greeting = require('./greeting.js');
+const greeting = require('./greeting');
 
-let res;
+var res;
 
-describe('테스트를 시작합니다.');
+describe("테스트를 시작합니다.", async function() {
+  before (async function(){
+      return res = await greeting(rtm, channel);
+  });
+
+  it('인사 모듈 테스트',function(done){
+    console.log(res);
+    assert.equal(res, 'success');
+    done();
+  });
+
+})
 */

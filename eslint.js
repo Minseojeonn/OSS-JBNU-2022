@@ -1,7 +1,9 @@
 module.exports = {
   env: {
-
     node: true,
+    browser: true,
+    amd: true,
+    jest: true,
   },
   extends: ['airbnb-base'],
   overrides: [
@@ -10,5 +12,9 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+  },
+  globals: {
+    window: true,
+    module: true,
   },
 };
