@@ -1,18 +1,15 @@
-require('dotenv').config();
-
 const { RTMClient } = require('@slack/rtm-api');
-
-let token = '';
-
 const fs = require('fs');
 
+let token;
+
 try {
-  const data = fs.readFileSync('./token.txt', 'utf8');
-  const [first] = data.toString().split('\n');
-  token = first;
+  token = fs.readFileSync('./token').toString('utf-8');
 } catch (err) {
   console.error(err);
 }
+
+console.log(token);
 
 const rtm = new RTMClient(token);
 rtm.start();
@@ -24,15 +21,17 @@ rtm.on('message', (message) => {
   const { channel } = message;
   const { text } = message;
 
-  if (!Number.isNaN(text)) {
+  if (!isNaN(text)) {
     square(rtm, text, channel);
   } else {
     switch (text) {
+      case '테스트를 시작한다.':
+        break;
       case 'hi':
         greeting(rtm, channel);
         break;
       default:
-        rtm.sendMessage('i m alive', channel);
+        rtm.sendMessage('I`m alive', channel);
     }
   }
 });

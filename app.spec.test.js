@@ -1,43 +1,62 @@
-/*
 require('dotenv').config();
-const { RTMClient } = require('@slack/rtm-api');
 
+const { RTMClient } = require('@slack/rtm-api');
 const fs = require('fs');
 
-const channel = 'D04BA58U7AR';
+let status = 0;
 
 let token;
 
 try {
-  token = fs.readFileSync('./token').toString('utf-8');
+  token = fs.readFileSync('./test_token').toString('utf-8');
 } catch (err) {
   console.error(err);
 }
+token = token.trim();
+
+const test_uID = 'U04C2Q8BGDN';
+const test_channel = 'C04BD9F3Q6N';
 
 console.log(token);
 
 const rtm = new RTMClient(token);
+rtm.start();
 
-(async () => {
-  await rtm.start()
-    .catch(console.error);
-})();
+rtm.on('ready', async () => {
+  const rdy1 = await rtm.sendMessage('테스트를 시작한다.', test_channel);
+  console.log('테스트 루틴 시작이다.');
+  status++;
 
-const assert = require('assert');
-const greeting = require('./greeting');
+  const rdy2 = await rtm.sendMessage('hi', test_channel);
+});
 
-var res;
+rtm.on('message', (message) => {
+  const { text } = message;
 
-describe("테스트를 시작합니다.", async function() {
-  before (async function(){
-      return res = await greeting(rtm, channel);
-  });
+  console.log('받은 메시지:', text);
 
-  it('인사 모듈 테스트',function(done){
-    console.log(res);
-    assert.equal(res, 'success');
-    done();
-  });
-
-})
-*/
+  if (message.user == test_uID) {
+    switch (status) {
+      case 1:
+        if (text == 'Hello!') {
+          console.log('테스트 #1 성공');
+        } else {
+          console.log('테스트 #1 실패');
+          process.exit(1);
+        }
+        rtm.sendMessage('4', test_channel);
+        status++;
+        console.log('테스트 #2 시작');
+        break;
+      case 2:
+        if (text == '16') {
+          console.log('테스트 #2 성공');
+        } else {
+          console.log('테스트 #2 실패');
+          process.exit(1);
+        }
+    }
+  } else {
+    rtm.sendMessage('테스트 채널에서 떠들지 마세요.', test_channel);
+  }
+});
