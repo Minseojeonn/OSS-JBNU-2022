@@ -7,6 +7,9 @@ TODO
 
 how to use.?
 
-1. fix .husky/pre_commit
-2. fix your git_information
-3. add your Slack temper.
+1. get images from host(contact private)
+2. docker load -i code-server.tar(contact private)
+3. docker-compose up -d(contact private)
+4. access by localhost:8443 ( passwd : OSS2022!!1234!!4321!!, root : 1234!!)
+5. git clone in docker
+6. npm install.
