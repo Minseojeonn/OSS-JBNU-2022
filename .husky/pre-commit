@@ -3,4 +3,4 @@
 
 echo 'Run Husky!!!'
 
-#npx eslint . --ext .js
+npx eslint . --ext .js
