@@ -1,9 +1,9 @@
-name: Feature1-test
+name: Feature4-test
 
 on: 
  push:
   branches:
-   - Feature1
+   - Feature4
  
 jobs:
   build:
@@ -39,4 +39,4 @@ jobs:
       env:
        CI: true
       run: |
-        mocha test/Feature1.test.js
+        mocha test/Feature4.test.js
