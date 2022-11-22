@@ -1,3 +1,4 @@
+/*eslint-disable*/
 const assert = require('assert');
 const fs = require('fs');
 const { RTMClient } = require('@slack/rtm-api');
