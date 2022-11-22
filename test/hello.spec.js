@@ -3,13 +3,13 @@ const assert = require('assert');
 const fs = require('fs');
 const { RTMClient } = require('@slack/rtm-api');
 const { channel } = require('diagnostics_channel');
-const greeting = require('./greeting');
-const { sayHello } = require('./hello');
+const greeting = require('../greeting');
+const { sayHello } = require('../hello');
 
 let token;
 
 try {
-  token = fs.readFileSync('./token').toString('utf-8');
+  token = fs.readFileSync('../token').toString('utf-8');
 } catch (err) {
   console.error(err);
 }
