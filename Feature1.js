@@ -13,4 +13,3 @@ const Feature1 = function (rtm, channel, num) {
   return 'Hola';
 };
 module.exports = Feature1;
-// hello
