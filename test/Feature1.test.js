@@ -3,7 +3,6 @@ const assert = require('assert');
 const fs = require('fs');
 const { RTMClient } = require('@slack/rtm-api');
 const { channel } = require('diagnostics_channel');
-const greeting = require('../greeting');
 const Feature1 = require('../Feature1');
 const { sayHello } = require('../hello');
 
@@ -25,18 +24,24 @@ describe('App test!', () => {
   });
 });
 
-describe('App test!', () => {
-  before(async () => res = await greeting(rtm, 'C04BD9F3Q6N'));
-  it('Test - sayHello should return hello', (done) => {
-    assert.equal(res, 'success');
+describe('Feature1 test!', () => {
+  before(async () => res = await Feature1(rtm, 'C04BD9F3Q6N', 0));
+  it('-----------------------Test - eng print-----------------------', (done) => {
+    assert.equal(res, "Hello");
     done();
   });
 });
-
 describe('Feature1 test!', () => {
-  before(async () => res = await Feature1(rtm, 'C04BD9F3Q6N',"temp"));
-  it('Test - Feature1 Test', (done) => {
-    assert.equal(res, 'success');
+  before(async () => res = await Feature1(rtm, 'C04BD9F3Q6N', 1));
+  it('-----------------------Test - chi print-----------------------', (done) => {
+    assert.equal(res, "Nǐ hǎo");
+    done();
+  });
+});
+describe('Feature1 test!', () => {
+  before(async () => res = await Feature1(rtm, 'C04BD9F3Q6N', 2));
+  it('-----------------------Test - Hola print-----------------------', (done) => {
+    assert.equal(res, "Hola");
     done();
   });
 });
