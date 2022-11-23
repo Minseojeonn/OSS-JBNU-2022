@@ -1,20 +1,21 @@
-const Feature1 = function (rtm, channel) {
-  while (1) {// eslint-disable-line
-    num = Math.floor(Math.random() * 3); // 0~2 사이의 정수
+const Feature1 = function (rtm, channel, num) {
     if (num === 0) {
       console.log('(English)인사를 합니다.');
       rtm.sendMessage('Hello', channel);
-      break;
+      return "Hello";
+      
     } else if (num === 1) {
       console.log('(Chinese)인사를 합니다.');
       rtm.sendMessage('Nǐ hǎo', channel);
-      break;
+      return "Nǐ hǎo";
+      
     } else {
       console.log('(Español)인사를 합니다.');
-      rtm.sendMessage('hola', channel);
-      break;
+      rtm.sendMessage('Hola', channel);
+      return 'Hola';
+      
     }
-  }
+  
 };
 module.exports = Feature1;
 // hello

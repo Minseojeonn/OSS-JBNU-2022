@@ -5,6 +5,7 @@ const regex = new RegExp('/');
 let token;
 global.Channels = {};
 
+
 try {
   const data = fs.readFileSync('./token', 'utf8');
   const [first] = data.toString().split('\n');
@@ -29,7 +30,8 @@ const Feature1 = require('./Feature1'); // eslint-disable-line
 rtm.on('message', (message) => {
   const { channel } = message;// eslint-disable-line 
   const { text } = message;
-
+  num = Math.floor(Math.random() * 3);
+  console.log(num);
   if (!isNaN(text)) {// eslint-disable-line
     square(rtm, text, channel);
   } else if (regex.test(text)) {
@@ -39,7 +41,7 @@ rtm.on('message', (message) => {
       case '테스트를 시작한다.':
         break;
       case 'Hi':
-        Feature1(rtm, channel);
+        Feature1(rtm, channel, num);
         break;
       case '학사일정':
         (async () => {
