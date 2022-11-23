@@ -1,34 +1,36 @@
 const { RTMClient } = require('@slack/rtm-api');
 const fs = require('fs');
 
-const regex = '/';
+const regex = new RegExp('/');
 let token;
 global.Channels = {};
 
 try {
-  token = fs.readFileSync('./token').toString('utf-8');
+  const data = fs.readFileSync('./token', 'utf8');
+  const [first] = data.toString().split('\n');
+  token = first;
 } catch (err) {
   console.error(err);
 }
-
+// token='xoxb-4227646272535-4340965642901-S2dsltjXUUlLsHSysbdX45hA';
 console.log(token);
 
 const rtm = new RTMClient(token);
 rtm.start();
 
-const { channel } = require('diagnostics_channel');// eslint-disable-line 
-const greeting = require('./greeting');
-const square = require('./square');
-const Feature1 = require('./Feature1');// eslint-disable-line
-const Feature2 = require('./Feature2');// eslint-disable-line
-const Feature3 = require('./Feature3');// eslint-disable-line
-const Feature4 = require('./Feature4');// eslint-disable-line
+// const { channel } = require('diagnostics_channel');// eslint-disable-line
 
+const square = require('./square');
+const Feature1 = require('./Feature1'); // eslint-disable-line
+// const Feature2 = require('./Feature2'); // eslint-disable-line
+// const Feature3 = require('./Feature3'); // eslint-disable-line
+// const Feature4 = require('./Feature4'); // eslint-disable-line
+//
 rtm.on('message', (message) => {
   const { channel } = message;// eslint-disable-line 
   const { text } = message;
 
-  if (!Number.isNaN(text)) {
+  if (!isNaN(text)) {// eslint-disable-line
     square(rtm, text, channel);
   } else if (regex.test(text)) {
     Feature2(rtm, channel, text);
@@ -36,8 +38,8 @@ rtm.on('message', (message) => {
     switch (text) {
       case '테스트를 시작한다.':
         break;
-      case 'hi':
-        greeting(rtm, channel);
+      case 'Hi':
+        Feature1(rtm, channel);
         break;
       case '학사일정':
         (async () => {
