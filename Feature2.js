@@ -21,27 +21,37 @@ const schedule = function (rtm, channel, text) {
         const diff = parseInt(temptemp[3]) - parseInt(temptemp[1]);
         for (let j = 0; j <= diff; j += 1) {
           const backdate = j + parseInt(temptemp[1]);
-
-          data[`${String(temptemp[0])}/${String(backdate)} `] = savedata;
+          if(`${String(temptemp[0])}/${String(backdate)} ` in data){
+            let stringplus = data[`${String(temptemp[0])}/${String(backdate)} `] + "," + savedata;
+            data[`${String(temptemp[0])}/${String(backdate)} `] = stringplus;
+          }
+          else{
+            data[`${String(temptemp[0])}/${String(backdate)} `] = savedata;
+          }
         }
       }
     }
-    console.log(data);
+    delete data[''];
+    //console.log(data); //debugcode
   } catch (err) {
     console.error(err);
   }
   // console.log(data);
   try {
     console.log('안내메시지 출력 완료');
-    if (global.Channels[channel] === 0) {
+    if (global.Channels[channel] === 0) { // first visit with '학사일정'
       global.Channels[channel] = 1;
     } else if (global.Channels[channel] === 1) {
-      rtm.sendMessage(data[`${text} `], channel);
-
       global.Channels[channel] = 0;
-    } else {
+      if(`${text} ` in data){ // key in dict
+        rtm.sendMessage(data[`${text} `], channel);
+      }
+      else{ // no key in dict
+        rtm.sendMessage("해당 일정은 존재하지 않습니다.", channel);
+      }     
+    } else { // first visit with date
       rtm.sendMessage('잘못된 접근입니다.', channel);
-      return Promise.resolve('success');
+      return Promise.resolve('worng access');
     }
     return Promise.resolve('success');
   } catch (error) {

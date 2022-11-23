@@ -13,7 +13,11 @@ module.exports = {
         "ecmaVersion": "latest"
     },
     "rules":{
-	"no-undef" : "off"
+        "no-undef" : "off",
+        "eqeqeq" : "off",
+        "no-restricted-globals" : "off",
+        "spaced-comment" : "off"
+
     },
     "globals": {
 	    window :true,
