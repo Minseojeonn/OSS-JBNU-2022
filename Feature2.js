@@ -48,12 +48,13 @@ const schedule = function (rtm, channel, text) {
       }
       else{ // no key in dict
         rtm.sendMessage("해당 일정은 존재하지 않습니다.", channel);
+        return Promise.resolve('no-plan')
       }     
     } else { // first visit with date
       rtm.sendMessage('잘못된 접근입니다.', channel);
       return Promise.resolve('worng access');
     }
-    return Promise.resolve('success');
+    return Promise.resolve('return Plan');
   } catch (error) {
     console.log('error!', error.data);
     return Promise.resolve('error');
