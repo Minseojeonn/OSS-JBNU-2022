@@ -9,7 +9,7 @@ const Feature1 = function (rtm, channel, num) {
     return 'Nǐ hǎo';
   }
    else{
-	console.log('(Español)인사를 합니다.');
+	  console.log('(Español)인사를 합니다.');
   	rtm.sendMessage('Hola', channel);
   	return 'Hola';
 }
