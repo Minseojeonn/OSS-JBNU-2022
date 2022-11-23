@@ -5,7 +5,6 @@ const regex = new RegExp('/');
 let token;
 global.Channels = {};
 
-
 try {
   const data = fs.readFileSync('./token', 'utf8');
   const [first] = data.toString().split('\n');
