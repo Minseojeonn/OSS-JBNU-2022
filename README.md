@@ -15,8 +15,8 @@ how to use.?
 6. npm install.
 
 -- If husky not work after npm install
-    =>https://www.npmjs.com/package/husky
-      1. npm install husky --save-dev
-      2. npm pkg set scripts.prepare="husky install"
-      3. npm run prepare
+=>https://www.npmjs.com/package/husky
+1. npm install husky --save-dev
+2. npm pkg set scripts.prepare="husky install"
+3. npm run prepare
       
