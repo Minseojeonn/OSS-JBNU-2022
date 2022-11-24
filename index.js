@@ -14,7 +14,6 @@ try {
 } catch (err) {
   console.error(err);
 }
-
 console.log(token);
 
 const rtm = new RTMClient(token);
@@ -24,7 +23,7 @@ const { channel } = require('diagnostics_channel');// eslint-disable-line
 const greeting = require('./greeting');
 const square = require('./square');
 const readdata = require('./read_data'); //eslint-disable-line
-//const Feature1 = require('./Feature1');  // eslint-disable-line
+const Feature1 = require('./Feature1');  // eslint-disable-line
 const Feature2 = require('./Feature2');   // eslint-disable-line
 //const Feature3 = require('./Feature3'); // eslint-disable-line
 //const Feature4 = require('./Feature4'); // eslint-disable-line
@@ -33,7 +32,9 @@ rtm.on('message', (message) => {
   const { channel } = message;// eslint-disable-line 
   const { text } = message;
 
-  if (!isNaN(text)) {
+  num = Math.floor(Math.random() * 3);
+  console.log(num);
+  if (!isNaN(text)) {// eslint-disable-line
     square(rtm, text, channel);
   } else if (regex.test(text)) {
     Feature2(rtm, channel, text);
@@ -41,8 +42,8 @@ rtm.on('message', (message) => {
     switch (text) {
       case '테스트를 시작한다.':
         break;
-      case 'hi':
-        greeting(rtm, channel);
+      case 'Hi':
+        Feature1(rtm, channel, num);
         break;
       case '학사일정':
         (async () => {
