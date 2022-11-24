@@ -20,7 +20,6 @@ const rtm = new RTMClient(token);
 rtm.start();
 
 const { channel } = require('diagnostics_channel');// eslint-disable-line 
-const greeting = require('./greeting');
 const square = require('./square');
 const readdata = require('./read_data'); //eslint-disable-line
 const Feature1 = require('./Feature1');  // eslint-disable-line
