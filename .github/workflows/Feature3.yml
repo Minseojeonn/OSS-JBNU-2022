@@ -1,9 +1,9 @@
-name: Mocha test
+name: Feature3-test
 
 on: 
  push:
   branches:
-   - main
+   - Feature3
  
 jobs:
   build:
@@ -29,7 +29,6 @@ jobs:
         npm install -g mocha
         npm install 
         
-
       env:
         CI: true
 
@@ -39,10 +38,5 @@ jobs:
             
       env:
        CI: true
-       TOKEN_BOT: ${{ secrets.ASK_BOT }}
       run: |
-        mocha hello.spec.js
-     
-       
-        
- 
+        mocha test/Feature3.test.js

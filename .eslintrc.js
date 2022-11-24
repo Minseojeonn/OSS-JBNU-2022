@@ -1,3 +1,4 @@
+/*eslint-disable*/
 module.exports = {
     "env": {
         "node": true,
@@ -12,6 +13,11 @@ module.exports = {
         "ecmaVersion": "latest"
     },
     "rules":{
+        "no-undef" : "off",
+        "eqeqeq" : "off",
+        "no-restricted-globals" : "off",
+        "spaced-comment" : "off"
+
     },
     "globals": {
 	    window :true,
