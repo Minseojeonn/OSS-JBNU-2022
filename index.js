@@ -4,7 +4,9 @@ const fs = require('fs');
 const regex = new RegExp('/'); //eslint-disable-line
 let token = ""; //eslint-disable-line
 global.Channels = {};
+global.data = {};
 
+token = '';
 try {
   const data = fs.readFileSync('./token', 'utf8');
   const [first] = data.toString().split('\n');
@@ -21,6 +23,7 @@ rtm.start();
 const { channel } = require('diagnostics_channel');// eslint-disable-line 
 const greeting = require('./greeting');
 const square = require('./square');
+const readdata = require('./read_data'); //eslint-disable-line
 //const Feature1 = require('./Feature1');  // eslint-disable-line
 const Feature2 = require('./Feature2');   // eslint-disable-line
 //const Feature3 = require('./Feature3'); // eslint-disable-line

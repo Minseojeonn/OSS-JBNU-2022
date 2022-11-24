@@ -3,39 +3,7 @@ const { Channel } = require('diagnostics_channel');
 
 const schedule = function (rtm, channel, text) {
   const regexp2 = new RegExp(':');
-  const fs = require('fs');
-  const data = {};
-  try {
-    const readData = fs.readFileSync('./haksa.txt').toString('utf-8').split('\n');
-    for (i in readData) {
-      const temp = readData[i].split(':');
-      data[temp[0]] = temp[1];
-    }
-
-    const keys = Object.keys(data);
-    for (i in keys) {
-      if (keys[i].length > 6) {
-        const savedata = data[keys[i]];
-        delete data[keys[i]];
-        const temptemp = keys[i].split(/\/|-/);
-        const diff = parseInt(temptemp[3]) - parseInt(temptemp[1]);
-        for (let j = 0; j <= diff; j += 1) {
-          const backdate = j + parseInt(temptemp[1]);
-          if(`${String(temptemp[0])}/${String(backdate)} ` in data){
-            let stringplus = data[`${String(temptemp[0])}/${String(backdate)} `] + "," + savedata;
-            data[`${String(temptemp[0])}/${String(backdate)} `] = stringplus;
-          }
-          else{
-            data[`${String(temptemp[0])}/${String(backdate)} `] = savedata;
-          }
-        }
-      }
-    }
-    delete data[''];
-    //console.log(data); //debugcode
-  } catch (err) {
-    console.error(err);
-  }
+  
   // console.log(data);
   try {
     console.log('안내메시지 출력 완료');
@@ -43,8 +11,8 @@ const schedule = function (rtm, channel, text) {
       global.Channels[channel] = 1;
     } else if (global.Channels[channel] === 1) {
       global.Channels[channel] = 0;
-      if(`${text} ` in data){ // key in dict
-        rtm.sendMessage(data[`${text} `], channel);
+      if(`${text} ` in global.data){ // key in dict
+        rtm.sendMessage(global.data[`${text} `], channel);
       }
       else{ // no key in dict
         rtm.sendMessage("해당 일정은 존재하지 않습니다.", channel);
