@@ -22,7 +22,7 @@ const schedule = function (rtm, channel, text) {
       rtm.sendMessage('잘못된 접근입니다.', channel);
       return Promise.resolve('worng access');
     }
-    return Promise.resolve('return Plan');
+    return Promise.resolve('Plan');
   } catch (error) {
     console.log('error!', error.data);
     return Promise.resolve('error');
