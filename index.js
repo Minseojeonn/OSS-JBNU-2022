@@ -1,10 +1,12 @@
 const { RTMClient } = require('@slack/rtm-api');
 const fs = require('fs');
 
-const regex = new RegExp('/');
-let token;
+const regex = new RegExp('/'); //eslint-disable-line
+let token = ""; //eslint-disable-line
 global.Channels = {};
+global.data = {};
 
+token = '';
 try {
   const data = fs.readFileSync('./token', 'utf8');
   const [first] = data.toString().split('\n');
@@ -12,23 +14,24 @@ try {
 } catch (err) {
   console.error(err);
 }
-// token='xoxb-4227646272535-4340965642901-S2dsltjXUUlLsHSysbdX45hA';
 console.log(token);
 
 const rtm = new RTMClient(token);
 rtm.start();
 
-// const { channel } = require('diagnostics_channel');// eslint-disable-line
-
+const { channel } = require('diagnostics_channel');// eslint-disable-line 
+const greeting = require('./greeting');
 const square = require('./square');
-const Feature1 = require('./Feature1'); // eslint-disable-line
-// const Feature2 = require('./Feature2'); // eslint-disable-line
-// const Feature3 = require('./Feature3'); // eslint-disable-line
-// const Feature4 = require('./Feature4'); // eslint-disable-line
-//
+const readdata = require('./read_data'); //eslint-disable-line
+const Feature1 = require('./Feature1');  // eslint-disable-line
+const Feature2 = require('./Feature2');   // eslint-disable-line
+//const Feature3 = require('./Feature3'); // eslint-disable-line
+//const Feature4 = require('./Feature4'); // eslint-disable-line
+
 rtm.on('message', (message) => {
   const { channel } = message;// eslint-disable-line 
   const { text } = message;
+
   num = Math.floor(Math.random() * 3);
   console.log(num);
   if (!isNaN(text)) {// eslint-disable-line
