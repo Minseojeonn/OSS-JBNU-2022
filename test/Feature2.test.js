@@ -6,7 +6,10 @@ const { channel } = require('diagnostics_channel');
 const greeting = require('../greeting');
 const Feature2 = require('../Feature2');
 const { sayHello } = require('../hello');
+const readdata = require('../read_data');
 global.Channels = {};
+global.data = {};
+
 let token;
 
 try {
@@ -37,7 +40,7 @@ describe('Feature2 test!', () => {
   global.Channels["C04BD9F3Q6N"] = 0;
   before(async () => res = await Feature2(rtm, 'C04BD9F3Q6N',"temp"));
   it('Test - Feature2 Test - 잘못된 접근', (done) => {
-    assert.equal(res, 'success');
+    assert.equal(res, 'no-plan');
     done();
   });
 });
@@ -47,7 +50,7 @@ describe('Feature2 test!', () => {
   global.Channels["C04BD9F3Q6N"] = 1;
   before(async () => res = await Feature2(rtm, 'C04BD9F3Q6N',"temp"));
   it('Test - Feature2 Test - 정상 출력', (done) => {
-    assert.equal(res, 'success');
+    assert.equal(res, 'Plan');
     done();
   });
 });
@@ -56,7 +59,7 @@ describe('Feature2 test!', () => {
   global.Channels["C04BD9F3Q6N"] = 1;
   before(async () => res = await Feature2(rtm, 'C04BD9F3Q6N',"temp"));
   it('Test - Feature2 Test - 없는 일정', (done) => {
-    assert.equal(res, 'success');
+    assert.equal(res, 'no-plan');
     done();
   });
 });
