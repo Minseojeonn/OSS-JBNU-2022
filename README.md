@@ -32,8 +32,11 @@ npm run prepare
 
 # git settings
 '''
+
 git config --global commit.template ./gitmessage.txt
+
 '''
+
 
 
 # enviroment
