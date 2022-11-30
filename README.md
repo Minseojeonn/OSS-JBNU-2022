@@ -32,12 +32,17 @@ npm run prepare
 
 # git settings
 ```
-
-git config --global commit.template ./gitmessage.txt
-
+git config --global commit.template .gitmessage.txt
+ 
 ```
-
-
+!!!!!!if U Commit something, just using
+```
+git commit
+```
+do not use
+'''
+git commit -m "something"
+'''
 
 # enviroment
 1. node = 14.x
