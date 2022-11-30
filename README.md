@@ -29,6 +29,13 @@ npm pkg set scripts.prepare="husky install"
 
 npm run prepare
 ```
+
+# git settings
+'''
+git config --global commit.template ./gitmessage.txt
+'''
+
+
 # enviroment
 1. node = 14.x
 2. eslint - airbnb
