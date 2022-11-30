@@ -40,9 +40,9 @@ git config --global commit.template .gitmessage.txt
 git commit
 ```
 do not use
-'''
+```
 git commit -m "something"
-'''
+```
 
 # enviroment
 1. node = 14.x
