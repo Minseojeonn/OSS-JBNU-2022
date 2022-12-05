@@ -34,7 +34,8 @@ try {
 
 try {
   const readData4 = fs.readFileSync('./dept.txt').toString('utf-8').split('\n');
-  for (let i = 0; i < readData4.length; i + 1) {
+  console.log(readData4);
+  for (let i = 0; i < readData4.length; i++) {
     const temp = readData4[i].split(' - ');
     global.loc[i] = temp[1];
     global.office[i] = temp[0];

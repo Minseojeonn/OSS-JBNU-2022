@@ -1,12 +1,19 @@
 const { RTMClient } = require('@slack/rtm-api');
 const fs = require('fs');
 
-const regex = '/';
-let token;
+const regex = ('/');  // eslint-disable-line
+const regex4 = new RegExp(' - ');  //eslint-disable-line
+let token = ""; // eslint-disable-line
 global.Channels = {};
+global.data = {};
+global.office = [];
+global.loc = [];
 
+token = '';
 try {
-  token = fs.readFileSync('./token').toString('utf-8');
+  const data = fs.readFileSync('./token', 'utf8');
+  const [first] = data.toString().split('\n');
+  token = first;
 } catch (err) {
   console.error(err);
 }
@@ -16,22 +23,21 @@ console.log(token);
 const rtm = new RTMClient(token);
 rtm.start();
 
-const { channel } = require('diagnostics_channel');// eslint-disable-line 
+const { channel } = require('diagnostics_channel'); // eslint-disable-line
 const greeting = require('./greeting');
 const square = require('./square');
-const Feature1 = require('./Feature1');// eslint-disable-line
-const Feature2 = require('./Feature2');// eslint-disable-line
-const Feature3 = require('./Feature3');// eslint-disable-line
-const Feature4 = require('./Feature4');// eslint-disable-line
+const readdata = require('./read_data'); // eslint-disable-line
+// const Feature1 = require('./Feature1');  // eslint-disable-line
+// const Feature2 = require('./Feature2');   // eslint-disable-line
+// const Feature3 = require('./Feature3'); // eslint-disable-line
+const Feature4 = require('./Feature4'); // eslint-disable-line
 
 rtm.on('message', (message) => {
-  const { channel } = message;// eslint-disable-line 
+  const { channel } = message; // eslint-disable-line
   const { text } = message;
 
-  if (!Number.isNaN(text)) {
+  if (!isNaN(text)) {
     square(rtm, text, channel);
-  } else if (regex.test(text)) {
-    Feature2(rtm, channel, text);
   } else {
     switch (text) {
       case '테스트를 시작한다.':
@@ -46,6 +52,18 @@ rtm.on('message', (message) => {
           await Feature2(rtm, channel, text);
         })();
         break;
+      case global.office[0]:
+      case global.office[1]:
+      case global.office[2]:
+      case global.office[3]:
+      case global.office[4]:
+      case global.office[5]:
+      case global.office[6]:
+      case global.office[7]:
+      case global.office[8]:
+      case global.office[9]:
+        Feature4(rtm, channel, text);
+        break;
       default:
         rtm.sendMessage(channel, channel);
         break;
@@ -57,3 +75,4 @@ rtm.on('message', (message) => {
     delete Channels[channel];
   }
 });
+     
