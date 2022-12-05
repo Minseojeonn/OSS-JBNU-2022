@@ -11,7 +11,7 @@ const Feature4 = function (rtm, channel, text) {
         break;
       }
     } 
-    if (check == 1) {
+    if (check == '1') {
       return Promise.resolve('Success')
     } else {
       rtm.sendMessage('잘못된 입력입니다.', channel);

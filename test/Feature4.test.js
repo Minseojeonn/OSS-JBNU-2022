@@ -1,4 +1,6 @@
 /*eslint-disable*/
+global.office = [];
+global.loc = [];
 const assert = require('assert');
 const fs = require('fs');
 const { RTMClient } = require('@slack/rtm-api');
@@ -38,17 +40,18 @@ describe('App test!', () => {
 
 
 describe('Feature4 test!', () => {
-  global.Channels["C04BD9F3Q6N"] = 1;
-  before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N',"temp"));
-  it('Test - Feature4 Test ----- 정상 출력 -----', (done) => {
-    assert.equal(res, 'Sucess');
-    done();
-  });
+  for(let i = 0; i < global.office.length; i++) {
+    before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N', global.office[i])); 
+    it('Test - Feature4 Test ----- 정상 출력 -----', (done) => {
+      assert.equal(res, 'Success');
+      done();
+    });
+  }
+  
 });
 
 describe('Feature4 test!', () => {
-  global.Channels["C04BD9F3Q6N"] = 1;
-  before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N',"temp"));
+  before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N', "temp"));
   it('Test - Feature4 Test ----- 잘못된 입력 -----', (done) => {
     assert.equal(res, 'worng input');
     done();

@@ -36,7 +36,7 @@ rtm.on('message', (message) => {
   const { channel } = message; // eslint-disable-line
   const { text } = message;
 
-  if (!isNaN(text)) {
+  if (!Number.isNaN(text)) {
     square(rtm, text, channel);
   } else {
     switch (text) {
@@ -75,4 +75,3 @@ rtm.on('message', (message) => {
     delete Channels[channel];
   }
 });
-     
