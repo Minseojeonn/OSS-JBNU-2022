@@ -5,11 +5,18 @@ const { tr } = require("date-fns/locale");
 const { compareDocumentPosition } = require("domutils");
 const { isArray, result } = require("lodash");
 (async () => {
-  //크롤링 대상 URL, axios의 get은 비동기 함수이므로 async-await을 사용한다.
-
+  
+menuResult = {
+  'date':'',
+  'menu1':'',
+  'menu2':'',
+  'menu3':'',
+  'menu4':'',
+}
   const html = await axios.get("https://sobi.chonbuk.ac.kr/menu/week_menu.php"),
     $ = cheerio.load(html.data);
-  const trElements = $("#contents > div.contentsArea.WeekMenu > div:nth-child(245) > div:nth-child(2) > table");
+    //#contents > div.contentsArea.WeekMenu > div:nth-child(247) > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(12) > span
+  const trElements = $(".tblType03");
     const Mon = trElements
         .map((index, table) => ({
         date : "Mon",
@@ -67,6 +74,7 @@ result.push(Wen[0]);
 result.push(Thur[0]);
 result.push(Fri[0]);
 console.log(result);
+
 return result;
 })();
 
