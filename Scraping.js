@@ -1,11 +1,12 @@
 /*eslint-disable*/
+
+const Scraping = function () {
 const cheerio = require("cheerio");
 const axios = require("axios");
 const { tr } = require("date-fns/locale");
 const { compareDocumentPosition } = require("domutils");
 const { isArray, result } = require("lodash");
 (async () => {
-  
 menuResult = {
   'date':'',
   'menu1':'',
@@ -77,4 +78,5 @@ console.log(result);
 
 return result;
 })();
-
+}
+module.exports = Scraping;

@@ -24,8 +24,10 @@ const square = require('./square');
 const readdata = require('./read_data'); //eslint-disable-line
 const Feature1 = require('./Feature1');  // eslint-disable-line
 const Feature2 = require('./Feature2');   // eslint-disable-line
+const Scrapping = require('./Scraping'); // eslint-disable-line
 //const Feature3 = require('./Feature3'); // eslint-disable-line
 //const Feature4 = require('./Feature4'); // eslint-disable-line
+Scrapping();
 
 rtm.on('message', (message) => {
   const { channel } = message;// eslint-disable-line 
