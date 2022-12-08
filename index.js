@@ -30,15 +30,13 @@ const Scrapping = require('./Scraping'); // eslint-disable-line
 Scrapping();
 
 rtm.on('message', (message) => {
-  const { channel } = message;// eslint-disable-line 
+  const { channel } = message; // eslint-disable-line
   const { text } = message;
 
   num = Math.floor(Math.random() * 3);
   console.log(num);
   if (!isNaN(text)) {// eslint-disable-line
     square(rtm, text, channel);
-  } else if (regex.test(text)) {
-    Feature2(rtm, channel, text);
   } else {
     switch (text) {
       case '테스트를 시작한다.':
@@ -52,6 +50,18 @@ rtm.on('message', (message) => {
           global.Channels[channel] = 0;
           await Feature2(rtm, channel, text);
         })();
+        break;
+      case global.office[0]:
+      case global.office[1]:
+      case global.office[2]:
+      case global.office[3]:
+      case global.office[4]:
+      case global.office[5]:
+      case global.office[6]:
+      case global.office[7]:
+      case global.office[8]:
+      case global.office[9]:
+        Feature4(rtm, channel, text);
         break;
       default:
         rtm.sendMessage(channel, channel);
