@@ -1,7 +1,7 @@
 const { RTMClient } = require('@slack/rtm-api');
 const fs = require('fs');
 
-const regex = ('/');  // eslint-disable-line
+const regex = new RegExp('/');  // eslint-disable-line
 const regex4 = new RegExp(' - ');  //eslint-disable-line
 let token = ""; // eslint-disable-line
 global.Channels = {};
@@ -35,9 +35,12 @@ const Feature4 = require('./Feature4'); // eslint-disable-line
 rtm.on('message', (message) => {
   const { channel } = message; // eslint-disable-line
   const { text } = message;
-
-  if (!Number.isNaN(text)) {
+  if (Number.isNaN(text)) {
     square(rtm, text, channel);
+  } else if (regex.test(text)) {
+    Feature2(rtm, channel, text);
+  } else if (global.office.includes(text)) {
+    Feature4(rtm, channel, text);
   } else {
     switch (text) {
       case '테스트를 시작한다.':
@@ -49,20 +52,15 @@ rtm.on('message', (message) => {
         (async () => {
           rtm.sendMessage('안내 받을 날짜를 이야기해주세요. (예, 12/21)', channel);
           global.Channels[channel] = 0;
-          await Feature2(rtm, channel, text);
+          await Feature4(rtm, channel, text);
         })();
         break;
-      case global.office[0]:
-      case global.office[1]:
-      case global.office[2]:
-      case global.office[3]:
-      case global.office[4]:
-      case global.office[5]:
-      case global.office[6]:
-      case global.office[7]:
-      case global.office[8]:
-      case global.office[9]:
-        Feature4(rtm, channel, text);
+      case '학과 안내':
+        (async () => {
+          rtm.sendMessage('안내 받을 학과 이름을 이야기해주세요.', channel);
+          global.Channels[channel] = 0;
+          await Feature4(rtm, channel, text);
+        })();
         break;
       default:
         rtm.sendMessage(channel, channel);

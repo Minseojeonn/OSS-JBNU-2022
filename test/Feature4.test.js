@@ -39,21 +39,27 @@ describe('App test!', () => {
 });
 
 
+
+
 describe('Feature4 test!', () => {
   for(let i = 0; i < global.office.length; i++) {
+    before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N', "학과 안내"));
+    it('Test - Feature4 Test ----- 정상 입력 -----', (done) => {
+      assert.equal(res, 'Success');
+      done();
+    });
     before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N', global.office[i])); 
     it('Test - Feature4 Test ----- 정상 출력 -----', (done) => {
       assert.equal(res, 'Success');
       done();
     });
   }
-  
 });
 
 describe('Feature4 test!', () => {
-  before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N', "temp"));
-  it('Test - Feature4 Test ----- 잘못된 입력 -----', (done) => {
-    assert.equal(res, 'worng input');
+  before(async () => res = await Feature4(rtm, 'C04BD9F3Q6N', global.office[0]));
+  it('Test - Feature4 Test ----- 잘못된 접근 -----', (done) => {
+    assert.equal(res, 'wrong access');
     done();
   });
 });
