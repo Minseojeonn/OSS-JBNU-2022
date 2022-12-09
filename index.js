@@ -8,6 +8,7 @@ global.Channels = {};
 global.Channels_F4 = {};
 global.data = {};
 global.office = [];
+global.modified_ofiice = [];
 global.loc = [];
 
 token = '';
@@ -41,7 +42,7 @@ rtm.on('message', (message) => {
     square(rtm, text, channel);
   } else if (regex.test(text)) {
     Feature2(rtm, channel, text);
-  } else if (global.office.includes(text)) {
+  } else if (global.Channels_F4[channel] == 1) {
     console.log('피처4 학과입력');
     Feature4(rtm, channel, text);
   } else {
