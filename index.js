@@ -73,7 +73,9 @@ rtm.on('message', (message) => {
   }
 
   // 두번째 query를 날리는 경우.
-  if (Channels[channel] === 0) {
-    delete Channels[channel];
+  if (global.Channels[channel] === 0) {
+    delete global.Channels[channel];
+  } else if (global.Channels_F4[channel] === 0) {
+    delete global.Channels_F4[channel];
   }
 });
