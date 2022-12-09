@@ -9,7 +9,7 @@ const greeting = require('../greeting');
 const Feature4 = require('../Feature4');
 const { sayHello } = require('../hello');
 const readdata = require('../read_data');
-global.Channels = {};
+global.Channels_F4 = {};
 global.data = {};
 
 let token;

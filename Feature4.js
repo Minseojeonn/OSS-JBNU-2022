@@ -7,10 +7,10 @@ const Feature4 = function (rtm, channel, text) {
     let check = 0;
     console.log('메시지 출력 완료');
     if (text=='학과 안내') { // first visit with '학사일정'
-      global.Channels[channel] = 1;
+      global.Channels_F4[channel] = 1;
       return Promise.resolve('Success');
-    } else if (global.Channels[channel] === 1) {
-      global.Channels[channel] = 0;
+    } else if (global.Channels_F4[channel] === 1) {
+      global.Channels_F4[channel] = 0;
       for (i in global.office) {
         if (global.office[i].includes(text)) {
           check = i; 

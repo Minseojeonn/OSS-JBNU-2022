@@ -5,6 +5,7 @@ const regex = new RegExp('/');  // eslint-disable-line
 const regex4 = new RegExp(' - ');  //eslint-disable-line
 let token = ""; // eslint-disable-line
 global.Channels = {};
+global.Channels_F4 = {};
 global.data = {};
 global.office = [];
 global.loc = [];
@@ -61,7 +62,7 @@ rtm.on('message', (message) => {
       case '학과 안내':
         (async () => {
           rtm.sendMessage('안내 받을 학과 이름을 이야기해주세요.', channel);
-          global.Channels[channel] = 0;
+          global.Channels_F4[channel] = 0;
           await Feature4(rtm, channel, text);
         })();
         break;
