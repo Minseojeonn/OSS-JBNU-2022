@@ -18,7 +18,6 @@ try {
 } catch (err) {
   console.error(err);
 }
-
 console.log(token);
 
 const rtm = new RTMClient(token);
@@ -38,7 +37,7 @@ rtm.on('message', (message) => {
 
   num = Math.floor(Math.random() * 3);
   console.log(num);
-  if (Number.isNaN(text)) {
+  if (!isNaN(text)) {// eslint-disable-line
     square(rtm, text, channel);
   } else if (regex.test(text)) {
     Feature2(rtm, channel, text);
@@ -75,7 +74,8 @@ rtm.on('message', (message) => {
   // 두번째 query를 날리는 경우.
   if (global.Channels[channel] === 0) {
     delete global.Channels[channel];
-  } else if (global.Channels_F4[channel] === 0) {
+  }
+  if (global.Channels_F4[channel] === 0) {
     delete global.Channels_F4[channel];
   }
 });
