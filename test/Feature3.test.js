@@ -5,8 +5,14 @@ const { RTMClient } = require('@slack/rtm-api');
 const { channel } = require('diagnostics_channel');
 const Feature3 = require('../Feature3');
 const { sayHello } = require('../hello');
-
+const Scrapping = require('../Scraping'); // eslint-disable-line
 let token;
+global.Channels = {};
+global.Channels_F4 = {};
+global.data = {};
+global.office = [];
+global.loc = [];
+global.result = [];
 
 try {
   token = fs.readFileSync('../token').toString('utf-8');
@@ -18,7 +24,7 @@ const rtm = new RTMClient(token);
 rtm.start();
 
 describe('Feature3 test!', () => {
-  before(async () => res = await Feature3(rtm, 'C04BD9F3Q6N',"오늘 밥 뭐야"));
+  before(async () => res = await Feature3(rtm, 'C04BD9F3Q6N', "오늘 밥 뭐야"));
   it('Test ----- Feature3 day Test -----', (done) => {
     assert.equal(res, 'day success');
     done();
@@ -26,9 +32,10 @@ describe('Feature3 test!', () => {
 });
 
 describe('Feature3 test!', () => {
-  before(async () => res = await Feature3(rtm, 'C04BD9F3Q6N', '이번주 뭐 나와'));
+  before(async () => res = await Feature3(rtm, 'C04BD9F3Q6N',"이번주 뭐 나와"));
   it('Test ----- Feature3 week Test -----', (done) => {
-    assert.equal(res, 'week success');
+    assert.equal(res, 'error');
     done();
   });
 });
+
