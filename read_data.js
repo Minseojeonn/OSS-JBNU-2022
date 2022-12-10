@@ -1,7 +1,7 @@
 /*eslint-disable*/
 const fs = require('fs');
 
-try {
+try { // read_schedule
   const readData = fs.readFileSync('./haksa.txt').toString('utf-8').split('\n');
   for (i in readData) {
     const temp = readData[i].split(':');
@@ -32,16 +32,20 @@ try {
   console.error(err);
 }
 
+//read dept
 try {
   const readData4 = fs.readFileSync('./dept.txt').toString('utf-8').split('\n');
   console.log(readData4);
   for (let i = 0; i < readData4.length; i++) {
     const temp = readData4[i].split(' - ');
     global.loc[i] = temp[1];
+    global.modified_ofiice[i] = temp[0].toUpperCase().replace(/ /g, '');
     global.office[i] = temp[0];
   }
   console.log(global.office);
+  console.log(global.modified_ofiice);
   console.log(global.loc);
+  
 } catch (err) {
   console.error(err);
 }

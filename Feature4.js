@@ -20,7 +20,12 @@ const Feature4 = function (rtm, channel, text) {
       if(global.office.includes(text)) {
         rtm.sendMessage(global.loc[check], channel);
         return Promise.resolve('Success');
-      } else { // no key in dict
+      }
+      else if(global.modified_ofiice.includes(text.toUpperCase().replace(/ /g, ''))){
+        rtm.sendMessage(global.loc[check], channel);
+        return Promise.resolve('Success');
+      } 
+      else { // no key in dict
         rtm.sendMessage("잘못된 학과 이름입니다.", channel);
         return Promise.resolve('wrong name')
       }     
