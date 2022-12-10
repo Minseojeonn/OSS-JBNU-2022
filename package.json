@@ -12,8 +12,10 @@
   "dependencies": {
     "@slack/rtm-api": "^6.0.0",
     "dotenv": "^16.0.3",
+    "fast-levenshtein": "^3.0.0",
     "hook": "0.0.5",
-    "mocha": "^10.1.0"
+    "mocha": "^10.1.0",
+    "string-similarity": "^4.0.4"
   },
   "repository": {
     "type": "git",
