@@ -8,6 +8,7 @@ global.Channels = {};
 global.Channels_F4 = {};
 global.data = {};
 global.office = [];
+global.modified_ofiice = [];
 global.loc = [];
 global.result = [];
 
@@ -24,9 +25,9 @@ console.log(token);
 const rtm = new RTMClient(token);
 rtm.start();
 
-const { channel } = require('diagnostics_channel');// eslint-disable-line 
+const { channel } = require('diagnostics_channel'); // eslint-disable-line
 const square = require('./square');
-const readdata = require('./read_data'); //eslint-disable-line
+const readdata = require('../OSS-JBNU-2022/read_data'); // eslint-disable-line
 const Feature1 = require('./Feature1');  // eslint-disable-line
 const Feature2 = require('./Feature2');   // eslint-disable-line
 const Scrapping = require('./Scraping'); // eslint-disable-line
@@ -43,7 +44,7 @@ rtm.on('message', (message) => {
     square(rtm, text, channel);
   } else if (regex.test(text)) {
     Feature2(rtm, channel, text);
-  } else if (global.office.includes(text)) {
+  } else if (global.Channels_F4[channel] == 1) {
     console.log('피처4 학과입력');
     Feature4(rtm, channel, text);
   } else {
