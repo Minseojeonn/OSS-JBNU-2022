@@ -8,7 +8,9 @@ global.Channels = {};
 global.Channels_F4 = {};
 global.data = {};
 global.office = [];
+global.modified_ofiice = [];
 global.loc = [];
+global.result = [];
 
 token = '';
 try {
@@ -28,20 +30,21 @@ const square = require('./square');
 const readdata = require('../OSS-JBNU-2022/read_data'); // eslint-disable-line
 const Feature1 = require('./Feature1');  // eslint-disable-line
 const Feature2 = require('./Feature2');   // eslint-disable-line
-// const Feature3 = require('./Feature3'); // eslint-disable-line
+const Scrapping = require('./Scraping'); // eslint-disable-line
+const Feature3 = require('./Feature3'); // eslint-disable-line
 const Feature4 = require('./Feature4'); // eslint-disable-line
 
 rtm.on('message', (message) => {
   const { channel } = message; // eslint-disable-line
   const { text } = message;
-
+  console.log(global.result);
   num = Math.floor(Math.random() * 3);
   console.log(num);
   if (!isNaN(text)) {// eslint-disable-line
     square(rtm, text, channel);
   } else if (regex.test(text)) {
     Feature2(rtm, channel, text);
-  } else if (global.office.includes(text)) {
+  } else if (global.Channels_F4[channel] == 1) {
     console.log('피처4 학과입력');
     Feature4(rtm, channel, text);
   } else {
@@ -56,6 +59,12 @@ rtm.on('message', (message) => {
           rtm.sendMessage('안내 받을 날짜를 이야기해주세요. (예, 12/21)', channel);
           global.Channels[channel] = 0;
           await Feature2(rtm, channel, text);
+        })();
+        break;
+      case '오늘 밥 뭐야':
+      case '이번주 뭐 나와':
+        (async () => {
+          await Feature3(rtm, channel, text);
         })();
         break;
       case '학과 안내':
