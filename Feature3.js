@@ -11,6 +11,7 @@ const Ranking = function(evaluation) {
   }
 }
 
+
 const Feature3 = function (rtm, channel, text) {  
   
   try {
@@ -38,7 +39,7 @@ const Feature3 = function (rtm, channel, text) {
       return Promise.resolve('week success');
     }
   } catch (error) {
-    console.log('error!', error.data);
+    console.log('error!', error.data, error.stack);
     return Promise.resolve('error');
   }
 };

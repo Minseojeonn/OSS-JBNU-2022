@@ -65,7 +65,7 @@ rtm.on('message', (message) => {
         (async () => {
           await Feature3(rtm, channel, text);
         })();
-      break;
+        break;
       case '학과 안내':
         (async () => {
           rtm.sendMessage('안내 받을 학과 이름을 이야기해주세요.', channel);
