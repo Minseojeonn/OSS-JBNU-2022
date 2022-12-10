@@ -39,7 +39,6 @@ const Feature3 = function (rtm, channel, text) {
       return Promise.resolve('week success');
     }
   } catch (error) {
-    console.log('error!', error.data, error.stack);
     return Promise.resolve('error');
   }
 };
