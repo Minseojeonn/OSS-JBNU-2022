@@ -51,6 +51,9 @@ rtm.on('message', (message) => {
     switch (text) {
       case '테스트를 시작한다.':
         break;
+      case '테스트 완료':
+        rtm.sendMessage('FIN', test_channel);
+        break;
       case 'Hi':
         Feature1(rtm, channel, num);
         break;
