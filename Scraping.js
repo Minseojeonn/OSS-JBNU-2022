@@ -17,15 +17,15 @@ const Scrapping = function() {
   }
     const html = await axios.get("https://sobi.chonbuk.ac.kr/menu/week_menu.php"),
       $ = cheerio.load(html.data);
-      //#contents > div.contentsArea.WeekMenu > div:nth-child(247) > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(12) > span
+      //#contents > div.contentsArea.WeekMenu > div:nth-child(253) > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(13) > span
     const trElements = $(".tblType03");
       const Mon = trElements
           .map((index, table) => ({
           date : "Mon",
-          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(12) > span").text(),
-          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(13) > span").text(),
-          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(14) > span").text(),
-          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(15) > span").text(),
+          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(13) > span").text(),
+          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(14) > span").text(),
+          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(15) > span").text(),
+          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(3) > ul > li:nth-child(16) > span").text(),
           evaluation : 0,
       }))
       .toArray();
@@ -33,10 +33,10 @@ const Scrapping = function() {
       const Tues = trElements
           .map((index, table) => ({
           date : "Tues",
-          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(9) > font > span").text(),
-          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(10) > font > span").text(),
-          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(11) > font > span").text(),
-          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(12) > font > span").text(), 
+          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(10) > font > span").text(),
+          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(11) > font > span").text(),
+          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(12) > font > span").text(),
+          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(4) > ul > li:nth-child(13) > font > span").text(), 
           evaluation : 0,
         }))
         .toArray();
@@ -44,10 +44,10 @@ const Scrapping = function() {
       const Wen = trElements
           .map((index, table) => ({
           date : "Wen",
-          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(19) > font").text(),
-          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(20) > font").text(),
-          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(21) > font").text(),
-          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(22) > font").text(), 
+          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(20) > font").text(),
+          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(21) > font").text(),
+          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(22) > font").text(),
+          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(5) > ul > li:nth-child(23) > font").text(), 
           evaluation : 0,
         }))
         .toArray();  
@@ -55,10 +55,10 @@ const Scrapping = function() {
       const Thur = trElements
           .map((index, table) => ({
           date : "Thur",
-          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(22) > font").text(),
-          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(23) > font").text(),
-          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(24) > font").text(),
-          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(25) > font").text(), 
+          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(23) > font").text(),
+          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(24) > font").text(),
+          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(25) > font").text(),
+          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(6) > ul > li:nth-child(26) > font").text(), 
           evaluation : 0,
         }))
         .toArray(); 
