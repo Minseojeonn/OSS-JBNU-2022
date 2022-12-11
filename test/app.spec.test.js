@@ -265,7 +265,7 @@ status++;
 console.log('테스트 #18 - 학과안내 - ver LEVinput');
 break;
 case 18:
-if (text == 'College of Humanities, 427') {
+if (text == 'Library and Information Science을 말씀하시는 건가요?College of Humanities, 427입니다.') {
   console.log('테스트 #18 성공');
 } else {
   console.log('테스트 #18 실패');
