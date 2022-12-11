@@ -17,9 +17,10 @@ const Feature3 = function (rtm, channel, text) {
   try {
     let daydata = new Date();
     let today = daydata.getDay();
+    today -= 1; 
 
     if (text == '오늘 밥 뭐야') {
-        if (today <= 5) {
+        if (today >= 0 && today <= 4) {
           let menu = global.result[today].menu1 + "\n" +global.result[today].menu2 + "\n" +global.result[today].menu3 + "\n" + global.result[today].menu4 + "\n";
           let rank = Ranking(global.result[today].evaluation);
           menu = menu + rank;
@@ -44,3 +45,4 @@ const Feature3 = function (rtm, channel, text) {
 };
 
 module.exports = Feature3;
+
