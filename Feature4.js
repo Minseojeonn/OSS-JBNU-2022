@@ -44,7 +44,8 @@ const Feature4 = function (rtm, channel, text) {
           } 
         }
         if (smallest_value <= 7){ 
-          rtm.sendMessage(global.loc[smallest_index], channel);
+          let sendstring = global.office[smallest_index] + "을 말씀하시는 건가요?" + global.loc[smallest_index]+ "입니다.";
+          rtm.sendMessage(sendstring, channel);
           return Promise.resolve('Success with levenshtein');
         }
         else{  
