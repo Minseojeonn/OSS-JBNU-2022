@@ -90,195 +90,54 @@ const Scrapping = function() {
   // 2.5 이상 => 별3개
   // 1.5이상 2.5 미만 => 별2
   // 그외 => 별1
-  let evaluation = [0, 0, 0, 0, 0];
-  for(var i=0; i<5; i++)
-  {
-    if(result[i].menu1.includes('쇠고기'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"국 발견")
-      continue;
+  for(var i=0; i<5; i++) {
+    switch (true) {
+      case result[i].menu1.includes('쇠고기'):  
+      case result[i].menu1.includes('된장국'):
+      case result[i].menu1.includes('김치찌개'):
+      case result[i].menu1.includes('육개장'): 
+        result[i].evaluation += 0.5;
+        break; 
+      default:
+        break; 
     }
-    if(result[i].menu1.includes('된장국'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"국 발견")
-      continue;
+    switch (true) {
+      case result[i].menu2.includes('갈비'):  
+      case result[i].menu2.includes('불고기'):
+      case result[i].menu2.includes('고추장'):
+      case result[i].menu2.includes('숯불'): 
+      case result[i].menu2.includes('치킨'): 
+      case result[i].menu2.includes('닭'): 
+        result[i].evaluation += 1.0;
+        break; 
+      default:
+        break; 
     }
-    if(result[i].menu1.includes('김치찌개'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"국 발견")
-      continue;
+    switch (true) {
+      case result[i].menu3.includes('계란찜'):  
+      case result[i].menu3.includes('미트'):
+      case result[i].menu3.includes('비엔나'):
+      case result[i].menu3.includes('쫄면'): 
+      case result[i].menu3.includes('베이컨'):
+      case result[i].menu3.includes('샐러드'):
+      case result[i].menu3.includes('잡채'):
+        result[i].evaluation += 0.5;
+        break; 
+      default:
+        break; 
     }
-    if(result[i].menu1.includes('육개장'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"국 발견")
-      continue;
-    }
-  }
-  // ==================menu2=======================갈비, 불고기, 고추장, 숯불, 치킨, 닭 =>1점
-  for(var i=0; i<5; i++)
-  {
-    if(result[i].menu2.includes('갈비'))
-    {
-      result[i].evaluation += 1;
-      evaluation[i] += 1;
-      // console.log(result[i].date,"점수추가 1")
-      continue;
-    }
-    if(result[i].menu2.includes('불고기'))
-    {
-      result[i].evaluation += 1;
-      evaluation[i] += 1;
-      // console.log(result[i].date,"점수추가 1")
-      continue;
-    }
-    if(result[i].menu2.includes('고추장'))
-    {
-      result[i].evaluation += 1;
-      evaluation[i] += 1;
-      // console.log(result[i].date,"점수추가 1")
-      continue;
-    }
-    if(result[i].menu2.includes('숯불'))
-    {
-      result[i].evaluation += 1;
-      evaluation[i] += 1;
-      // console.log(result[i].date,"점수추가 1")
-      continue;
-    }
-    if(result[i].menu2.includes('치킨'))
-    {
-      result[i].evaluation += 1;
-      evaluation[i] += 1;
-      // console.log(result[i].date,"점수추가 1")
-      continue;
-    }
-    if(result[i].menu2.includes('닭'))
-    {
-      result[i].evaluation += 1;
-      evaluation[i] += 1;
-      // console.log(result[i].date,"점수추가 1")
-      continue;
-    }
-  }
-  // ==================menu3=======================계란찜, 미트, 비엔나, 쫄면, 베이컨, 샐러드, 잡채 => 0.5점
-  for(var i=0; i<5; i++)
-  {
-    if(result[i].menu3.includes('계란찜'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu3.includes('미트'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu3.includes('비엔나'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu3.includes('쫄면'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu3.includes('베이컨'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu3.includes('샐러드'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu3.includes('잡채'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-  }
-  // ===================ㅡmenu4================쫄면, 깻잎, 샐러드, 도토리묵 => 0.5점
-  for(var i=0; i<5; i++)
-  {
-    if(result[i].menu4.includes('쫄면'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu4.includes('깻잎'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu4.includes('샐러드'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
-    }
-    if(result[i].menu4.includes('도토리'))
-    {
-      result[i].evaluation += 0.5;
-      evaluation[i] += 0.5;
-      // console.log(result[i].date,"점수추가 0.5")
-      continue;
+    switch (true) {
+      case result[i].menu4.includes('쫄면'):  
+      case result[i].menu4.includes('깻잎'):
+      case result[i].menu4.includes('샐러드'):
+      case result[i].menu4.includes('도토리'): 
+        result[i].evaluation += 0.5;
+        break; 
+      default:
+        break; 
     }
   }
   global.result = result;
   })();
 }
-
-const Ranking = function() {
-
-  // =================menu 평가완료=================
-  // 2.5 이상 => 별3개
-  // 1.5이상 2.5 미만 => 별2
-  // 그외 => 별1
-  // for(var i=0;i<5;i++)
-  // {
-  //   console.log(global.result[i].date, "평점", global.result[i].evaluation);
-  //   if(global.result[i].evaluation>=2.5)
-  //   {
-  //     console.log("★★★\n")
-  //   }
-  //   if(global.result[i].evaluation>=1.5 && global.result[i].evaluation<2.5)
-  //   {
-  //     console.log("★★☆\n")
-  //   }
-  //   else{
-  //     console.log("★☆☆\n")
-  //   }
-  // }
-}
-
 Scrapping();
-
