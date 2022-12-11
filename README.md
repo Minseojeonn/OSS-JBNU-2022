@@ -51,7 +51,7 @@ You Can use Develop Enviroment by Docker_container
 
 
 ## how to develop settings? __ for developer
- 1. get ./run.sh from http://naver.me/FxX9o7Lw
+ 1. get ./run.sh from http://naver.me/GMvWBKun
  2. do ./run.sh (if not work , do chmod 777)
  3. access by localhost:8443 ( passwd : hello!!!, root : 1234!!)
  4. git clone this repo.
