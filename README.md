@@ -41,10 +41,10 @@ You Can use Develop Enviroment by Docker_container
 2. 학사일정 + m/dd
 3. 학과 안내 + 과 이름 (영어로)
 4. 오늘 밥 뭐야
-5. 이번주 뭐 
+5. 이번주 뭐 나와
 
 
-<br/> <br/> <br/> <br/> <br/><br/> <br/> <br/> <br/> <br/> 
+<br/> <br/> <br/> <br/> <br/>
 
 # <span style = "color: red"> ///////////////////// FOR DEVELOPER!!!!!!!///////////////////////////////////// </span>
 
