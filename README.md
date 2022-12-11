@@ -30,6 +30,14 @@ cd OSS-JBNU-2022/For_new_developer
 ./init_setting.sh
 ```
 
+# how to start test
+### 1. fix your token
+### 2. do.
+'''
+cd OSS-JBNU-2022/test
+./start_test.sh
+'''
+
 
 
 # enviroment
