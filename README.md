@@ -24,7 +24,7 @@ TODO
 ```
 
 
-<br/> <br/> <br/> <br/> <br/><br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> 
+<br/> <br/> <br/> <br/> <br/><br/> <br/> <br/> <br/> <br/> 
 
 # <span style = "color: red"> ///////////////////// FOR DEVELOPER!!!!!!!///////////////////////////////////// </span>
 
@@ -54,5 +54,9 @@ cd OSS-JBNU-2022/test
 |`eslint`|airbnb_Rule|
 |`husky`|None|
 |`docker`|None|
+
+## PR RULE
+1. Every New Feature Branch only merged by PR
+2. If PR can not pass the mocha Test, it dismissed.
 
 
