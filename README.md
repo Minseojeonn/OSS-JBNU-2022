@@ -31,6 +31,7 @@ You Can use Develop Enviroment by Docker_container
  1. paste your token. 
  2. just do
 ```
+./init_setting.sh
 ./server_start.sh
 ```
 
