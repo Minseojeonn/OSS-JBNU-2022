@@ -1,3 +1,8 @@
+<img src="https://img.shields.io/badge/MIT_Lisence-61DAFB?style=flat&logo=React&logoColor=white"/>
+
+![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=OSS-%20JBNU-%202022&fontSize=90)
+
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=raichal2000&show_icons=true&theme=radical)
 # OSS-JBNU-2022
 JBNU_OSS_2022_T8
 
@@ -5,14 +10,21 @@ You Can use Develop Enviroment by Docker_container
 
 TODO
 
-# how to use.? ___ for USER
+## how to use.? ___ for USER
  1. paste your token. 
  2. just do
 ```
 ./server_start.sh
 ```
 
-# how to develop settings? __ for developer
+
+
+
+# <span style = "color: red"> ///////////////////// FOR DEVELOPER!!!!!!!///////////////////////////////////// </span>
+
+
+
+## how to develop settings? __ for developer
  1. get ./run.sh from http://naver.me/FxX9o7Lw
  2. do ./run.sh (if not work , do chmod 777)
  3. access by localhost:8443 ( passwd : hello!!!, root : 1234!!)
@@ -21,7 +33,7 @@ TODO
  6. ./init_setting.sh
  7. FIN. 
 
-# how to start test
+## how to start test
  1. fix your token
  2. do.
 ```
@@ -29,12 +41,12 @@ cd OSS-JBNU-2022/test
 ./start_test.sh
 ```
 
-# enviroment
-1. node = 14.x
-2. eslint - airbnb
-3. husky
-4. docker
-
-
+## enviroment
+|**Name**|**Version_or_Rule**
+|:-|:-|
+|`node`|14.x<=Version|
+|`eslint`|airbnb_Rule|
+|`husky`|None|
+|`docker`|None|
 
 
