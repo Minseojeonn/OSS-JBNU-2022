@@ -1,15 +1,20 @@
-<img src="https://img.shields.io/badge/MIT_Lisence-61DAFB?style=flat&logo=React&logoColor=white"/>
+<div align=center>
+ 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=OSS-%20JBNU-%202022&fontSize=90)
 
 ![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=raichal2000&show_icons=true&theme=radical)
-# OSS-JBNU-2022
+ 
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=hyun4325&show_icons=true&theme=radical)
+
+ # OSS-JBNU-2022
 JBNU_OSS_2022_T8
 
 You Can use Develop Enviroment by Docker_container
 
 TODO
-
+ </div>
 ## how to use.? ___ for USER
  1. paste your token. 
  2. just do
