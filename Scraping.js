@@ -66,10 +66,10 @@ const Scrapping = function() {
       const Fri = trElements
           .map((index, table) => ({
           date : "Fri",    
-          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(18) > font").text(),
-          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(19) > font").text(),
-          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(20) > font").text(),
-          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(21) > font").text(), 
+          menu1: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(19) > font").text(),
+          menu2: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(20) > font").text(),
+          menu3: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(21) > font").text(),
+          menu4: $(table).find("tbody > tr:nth-child(1) > td:nth-child(7) > ul > li:nth-child(22) > font").text(), 
           evaluation : 0,
         }))
       .toArray();    
