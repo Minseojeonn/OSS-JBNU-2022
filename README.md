@@ -59,6 +59,10 @@ You Can use Develop Enviroment by Docker_container
  6. ./init_setting.sh
  7. FIN. 
 
+
+### Videos 
+[![설정법](http://img.youtube.com/vi/HFcvmrMFPh4/0.jpg)](https://www.youtube.com/watch?v=HFcvmrMFPh4) 
+
 ## how to start test
  1. fix your token
  2. do.
